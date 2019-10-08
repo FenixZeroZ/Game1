@@ -1,16 +1,20 @@
+package Map;
+
 import java.util.ArrayList;
 import java.util.Random;
 
 public class Map {
-    ArrayList<Terrain> territories = new ArrayList<>();
+    ArrayList<Terrain> territories = new ArrayList<>();     //Список территорий
 
     // Генерация карты
     public void generated() {
         Random random = new Random();
-        String nameA = nameTerritoryFarmA[random.nextInt(nameTerritoryFarmA.length)];
-        String nameB = nameTerritoryFarmB[random.nextInt(nameTerritoryFarmB.length)];
-        String t = type[random.nextInt(type.length)];
-        String opis="";
+        String nameA = nameTerritoryFarmA[random.nextInt(nameTerritoryFarmA.length)];      //Первая часть названия территории
+        String nameB = nameTerritoryFarmB[random.nextInt(nameTerritoryFarmB.length)];      //Вторая часть названия территории
+        String t = type[random.nextInt(type.length)];      //Генерация типа территории
+        String opis="";     //Переменная для описания территории
+
+        // Выбор описания по типу территории
         switch (t) {
             case "war":
                 opis = opisanieTerritori[0];
@@ -23,9 +27,13 @@ public class Map {
                 break;
         }
 
+        //Добавление сгенерированной территории в список земель
         territories.add(new Terrain(nameA + " " + nameB, opis, t));
-        System.out.println(territories.get(0));
-        territories.remove(0);
+
+    }
+
+    public Terrain getTerrain(int index){
+        return territories.get(index);
     }
 
     String[] type = {"war", "farm", "town"};

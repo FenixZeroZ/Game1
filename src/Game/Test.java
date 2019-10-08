@@ -1,3 +1,8 @@
+package Game;
+
+import Enemy.Hero;
+import Enemy.Vrag;
+
 public class Test {
     static void start(){
         System.out.println("Тест модулей.");

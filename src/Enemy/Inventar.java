@@ -1,3 +1,7 @@
+package Enemy;
+
+import Item.Item;
+
 import java.util.ArrayList;
 // Инвентарь героя
 public interface Inventar {

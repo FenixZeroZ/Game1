@@ -1,4 +1,5 @@
-import java.util.ArrayList;
+package Enemy;
+
 import java.util.Random;
 
 public class Vrag extends Enemy {
@@ -6,7 +7,7 @@ public class Vrag extends Enemy {
     Random r = new Random();
     int value;
 
-    Vrag(Hero hero) {
+    public Vrag(Hero hero) {
         value = r.nextInt(names.length);
         name = names[value];
 

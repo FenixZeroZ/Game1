@@ -1,3 +1,8 @@
+package Game;
+
+import Enemy.Hero;
+import Enemy.Vrag;
+
 public class Battle {
     private static   boolean battle =true;
 
@@ -7,7 +12,7 @@ public class Battle {
         while (battle){
 
             vrag.hp-= 2;
-            System.out.println("Vrag hp "+vrag.getHp());
+            System.out.println("Enemy.Vrag hp "+vrag.getHp());
             if (vrag.getHp()<=0){
                 System.out.println("Вы победили: "+vrag.getName());
                 System.out.println("Вы получили опыта: "+vrag.level*10);

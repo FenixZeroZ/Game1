@@ -1,19 +1,21 @@
+package Enemy;
+
+import Game.Ypravlenie;
+
 import java.io.BufferedReader;
 import java.io.IOException;
+import java.io.InputStreamReader;
 
-public final class Hero extends Enemy implements Inventar, Scill  {
+
+public final class Hero extends Enemy implements Inventar, Scill {
     private  String name; // Имя героя
     private  boolean createHero = true; // Переменная для цикля создания героя
-  //  private  int maxHp = 10;  // Здоровье персонажа
-  //  private  int damage = 3; // Урон персонажа
-  //  private  int armor = 2; // Защита героя
-   // private  int hp;
     private  int xp = 0; // Опыт
-   // private  int level; // Уровень
-    private  BufferedReader reader = Ypravlenie.getReader();
+    private  BufferedReader reader ;
     private  int xpPred =100;
 
     public  void createHero() {
+        reader = new BufferedReader(new InputStreamReader(System.in));
         while (createHero) {
             level = 1;
             maxHp = 10;
@@ -30,6 +32,7 @@ public final class Hero extends Enemy implements Inventar, Scill  {
 
             createHero = false;
         }
+        reader=null;
     }
 
     public int getMaxhp() {
@@ -52,8 +55,8 @@ public final class Hero extends Enemy implements Inventar, Scill  {
     public  void setArmor(int armor1) {armor+=armor1;}
 
     static void inv(){
-        for (int i = 0; i < inv.size() ; i++) {
-            System.out.println(inv.get(i));
+        for (int i = 0; i < Inventar.inv.size() ; i++) {
+            System.out.println(Inventar.inv.get(i));
         }
         System.out.println("");
     }

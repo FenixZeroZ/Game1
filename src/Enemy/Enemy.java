@@ -1,3 +1,5 @@
+package Enemy;
+
 public abstract class Enemy {
     public  String name;
     public   int hp;

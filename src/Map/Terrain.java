@@ -1,3 +1,5 @@
+package Map;
+
 public class Terrain extends Territory {
     // С какой территорией соединяется
     private Terrain connectedLeft = null;

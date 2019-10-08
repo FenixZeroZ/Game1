@@ -1,3 +1,5 @@
+package Map;
+
 public abstract class Territory {
     private String nameTerritory;  // Название территории
     private String opisanieTerritory; // Описание территории

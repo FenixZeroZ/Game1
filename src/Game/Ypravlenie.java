@@ -1,28 +1,42 @@
+package Game;
+
+import Enemy.Hero;
+
 import java.io.BufferedReader;
 import java.io.IOException;
 import java.io.InputStreamReader;
+
+import Map.Map;
 
 public class Ypravlenie {
     private static BufferedReader reader;
     private static boolean game = true; // Управление циклом меню и игры
     private static String s = "";
-    Hero hero = new Hero();
+    private Hero hero;
+    private Map map;
 
-    public  void start() {
-        reader = new BufferedReader(new InputStreamReader(System.in));
+    public void start() {
+
         System.out.println("Добро пожаловать в игру Game1.\n");
 
+        //Тело цикла меню игры при старте
         while (game) {
+            reader = new BufferedReader(new InputStreamReader(System.in));
             Menu.menu();
             try {
-                s = Ypravlenie.getReader().readLine();
+                s = reader.readLine();
             } catch (IOException e) {
                 e.printStackTrace();
             }
             switch (s) {
                 case "a":
+                    reader = null;
+                    hero = new Hero();
                     hero.createHero();
-                    System.out.println(hero);
+                    System.out.println(hero+"\n");
+                    map = new Map();
+                    map.generated();
+                    System.out.println(map.getTerrain(0)+"\n");
                     break;
                 case "b":
                     System.out.println("Планируется в дальнейшем.\n");
@@ -44,13 +58,5 @@ public class Ypravlenie {
                     System.out.println("Вы ввели неправильный пункт меню. Попробуйте ещё раз\n");
             }
         }
-
-
-    }
-
-    // Передача потока приёма данных для нужд просящих классов
-
-    public static BufferedReader getReader() {
-        return reader;
     }
 }
